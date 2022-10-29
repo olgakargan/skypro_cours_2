@@ -22,6 +22,7 @@ class ExaminerServiceImplTest {
     @Mock
     private JavaQuestionService javaQuestionService;
 
+
     private ExaminerServiceImpl examinerService;
 
     @BeforeEach
@@ -29,11 +30,12 @@ class ExaminerServiceImplTest {
         examinerService = new ExaminerServiceImpl(List.of(javaQuestionService));
         when(javaQuestionService.getRandomQuestion()).
                 thenReturn(J_QUEST1, J_QUEST2, J_QUEST3, J_QUEST4);
-    }
+            }
 
     @Test
     void shouldReturnCorrectAmountOfRandomQuestions() {
-        assertEquals(6, examinerService.getQuestions(6).size());
+        assertEquals(6,
+                examinerService.getQuestions(6).size());
     }
 
     @Test
@@ -41,3 +43,4 @@ class ExaminerServiceImplTest {
         assertTrue(ALL_QUESTIONS_SET.containsAll(examinerService.getQuestions(8)));
     }
 }
+
